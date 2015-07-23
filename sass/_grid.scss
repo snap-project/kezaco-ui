@@ -1,0 +1,86 @@
+/**
+ * Medias queries breakpoints
+ */
+$small : 480px!default;
+$medium: 768px!default;
+$screen: 1100px!default;
+$large : 1200px!default;
+
+
+/**
+ * Grid attributes
+ */
+$colClassSlug  : "col";
+$containerWidth: 960px!default;
+$nbColumns     : 12!default;
+$columnWidth   : (100% / $nbColumns);
+$gutterWidth   : 20px;
+
+/**
+ * Grid
+ */
+ *, *:after, *:before {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+ }
+
+ .row {
+   @include pie-clearfix;
+ }
+
+[class*=#{$colClassSlug}] {
+  float: left;
+  padding: 0 $gutterWidth;
+}
+
+@for $i from 1 through $nbColumns {
+  .#{$colClassSlug}-m-#{$i} {
+    width: 100% / (12 / $i);
+  }
+}
+
+@for $i from 0 through $nbColumns {
+  .#{$colClassSlug}-m-push-#{$i} {
+    margin-left: 100% / (12 / $i);
+  }
+}
+
+@media screen and (min-width: $medium) {
+  @for $i from 1 through $nbColumns {
+    .#{$colClassSlug}-t-#{$i} {
+      width: 100% / (12 / $i);
+    }
+  }
+  @for $i from 0 through $nbColumns {
+    .#{$colClassSlug}-t-push-#{$i} {
+      margin-left: 100% / (12 / $i);
+    }
+  }
+}
+
+@media screen and (min-width: $screen) {
+  @for $i from 1 through $nbColumns {
+    .#{$colClassSlug}-s-#{$i} {
+      width: 100% / (12 / $i);
+    }
+  }
+  @for $i from 0 through $nbColumns {
+    .#{$colClassSlug}-s-push-#{$i} {
+      margin-left: 100% / (12 / $i);
+    }
+  }
+}
+
+@media screen and (min-width: $large) {
+  @for $i from 1 through $nbColumns {
+    .#{$colClassSlug}-l-#{$i} {
+      width: 100% / (12 / $i);
+    }
+  }
+  @for $i from 0 through $nbColumns {
+    .#{$colClassSlug}-l-push-#{$i} {
+      margin-left: 100% / (12 / $i);
+    }
+  }
+}

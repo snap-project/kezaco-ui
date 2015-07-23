@@ -1,0 +1,165 @@
+$btn-toggle-menu-size: 40px;
+$btn-toggle-menu-bar-color: #FFF;
+$btn-toggle-menu-color: #2c3e50;
+
+$menu-sidebar-width: 250px;
+$menu-background-color: #2c3e50;
+
+$name-app-link-color: #2c3e50;
+$menu-active-link-color: #e74c3c;
+.overlay {
+  position: fixed;
+  top: -100%; bottom: 100%;
+  left: 0; right: 0;
+  background: rgba(0,0,0,.1);
+  transition: all .3s;
+  z-index: 10;
+}
+
+.header {
+  padding: 0 20px;
+  > a {
+    line-height: 60px;
+    margin-left: 60px;
+    font-size: 30px;
+    color: $name-app-link-color;
+  }
+
+}
+
+.btn-toggle-menu {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  width: $btn-toggle-menu-size;
+  height: $btn-toggle-menu-size;
+  background: $btn-toggle-menu-color;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  &:after {
+    content:"";
+    position: absolute;
+    display: block;
+    width: 28px;
+    top: -10px;
+    height: $btn-toggle-menu-size / 2;
+    box-shadow: 0 4px 0 $btn-toggle-menu-bar-color,
+                0 8px 0 $btn-toggle-menu-color,
+                0 12px 0 $btn-toggle-menu-bar-color,
+                0 16px 0 $btn-toggle-menu-color,
+                0 20px 0 $btn-toggle-menu-bar-color;
+  }
+
+  &:hover {
+    box-shadow: 0 0 8px rgba(0,0,0,.5);
+  }
+}
+
+.menu {
+  display: block;
+  position: fixed;
+  width: $menu-sidebar-width;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  background: $menu-background-color;
+  transition: all $animation-duration;
+  z-index: 20;
+
+  span {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+    background: lighten($menu-background-color, 4);
+    text-align: center;
+    border-bottom: solid 1px darken($menu-background-color, 4);
+  }
+
+  a {
+    display: block;
+    line-height: 60px;
+    border-bottom: solid 1px darken($menu-background-color, 4);
+    color: #fff;
+    text-align: center;
+    position: relative;
+
+    &.active {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: $menu-active-link-color;
+        left: 20px;
+        top: 25px;
+        z-index:100;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px lighten($menu-active-link-color, 7) inset;
+      }
+    }
+  }
+}
+
+.with-sidebar {
+  .menu {
+    left: 0;
+  }
+
+  .overlay {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+@media screen and (min-width: $screen) {
+  .btn-toggle-menu {
+    display: none;
+  }
+
+  .header {
+    overflow: hidden;
+    > a {
+      margin-left: 0;
+    }
+  }
+
+  .menu {
+    transition: none;
+    display: inline-block;
+    float: right;
+    position: static;
+    width: auto;
+    margin-top: 0;
+    background: transparent;
+    height: 60px;
+    overflow-y: auto;
+    span {
+      display: none;
+    }
+
+    a {
+      padding: 0 20px;
+      display: inline-block;
+      line-height: 60px;
+      border-bottom: none;
+      color: $name-app-link-color;
+      text-align: center;
+      position: relative;
+      transition: color $animation-duration;
+      &.active {
+        color: $menu-active-link-color;
+        &:before {
+          display: none;
+        }
+      }
+
+      &:hover {
+        color: $menu-active-link-color;
+      }
+    }
+  }
+}
