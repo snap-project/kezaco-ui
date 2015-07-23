@@ -1,12 +1,13 @@
 $btn-toggle-menu-size: 40px;
 $btn-toggle-menu-bar-color: #FFF;
-$btn-toggle-menu-color: #2c3e50;
+$btn-toggle-menu-color: #F64E5E;
 
 $menu-sidebar-width: 250px;
 $menu-background-color: #2c3e50;
 
 $name-app-link-color: #2c3e50;
 $menu-active-link-color: #e74c3c;
+
 .overlay {
   position: fixed;
   top: -100%; bottom: 100%;
@@ -18,11 +19,21 @@ $menu-active-link-color: #e74c3c;
 
 .header {
   padding: 0 20px;
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
   > a {
     line-height: 60px;
     margin-left: 60px;
     font-size: 30px;
     color: $name-app-link-color;
+
+    img {
+      vertical-align: middle;
+    }
   }
 
 }
@@ -37,18 +48,36 @@ $menu-active-link-color: #e74c3c;
   border: none;
   cursor: pointer;
   z-index: 10;
-  &:after {
-    content:"";
+  border-radius: 50%;
+  text-align: center;
+  span {
+    position: absolute;
+    vertical-align: middle;
+    height: 5px;
+    width: $btn-toggle-menu-size / 2;
+    left: $btn-toggle-menu-size / 4;
+    background: white;
+    top: $btn-toggle-menu-size / 2;
+    transform: translateY(-50%);
+  }
+  span:before, span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: $btn-toggle-menu-size / 2;
     position: absolute;
     display: block;
-    width: 28px;
-    top: -10px;
-    height: $btn-toggle-menu-size / 2;
-    box-shadow: 0 4px 0 $btn-toggle-menu-bar-color,
-                0 8px 0 $btn-toggle-menu-color,
-                0 12px 0 $btn-toggle-menu-bar-color,
-                0 16px 0 $btn-toggle-menu-color,
-                0 20px 0 $btn-toggle-menu-bar-color;
+    content: '';
+    left: $btn-toggle-menu-size / 4;
+    background: white;
+  }
+  span:before {
+    top: $btn-toggle-menu-size / 4 * -1;
+    left: 0;
+  }
+  span:after {
+    bottom: $btn-toggle-menu-size / 4 * -1;
+    left: 0;
   }
 
   &:hover {

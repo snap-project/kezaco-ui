@@ -11,6 +11,8 @@ body {
 
 body {
   font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 a {
@@ -25,7 +27,8 @@ a {
 }
 
 .site-content {
-  min-height: calc(100% - #{$offset-site-content});
+  margin-top: 80px;
+  min-height: calc(100% - #{$offset-site-content} + 60px);
 }
 
 .footer {
@@ -51,26 +54,16 @@ a {
   .input-search {
     display: block;
     width: 100%;
-    background: transparent;
-    border: solid 1px #95a5a6;
-    height: 40px;
     padding: 0 10px;
     margin: 10px auto;
+
+
   }
 
-  [type="submit"] {
-    display: block;
-    background: #ecf0f1;
-    border: solid 1px #bdc3c7;
-    height: 40px;
-    width: 150px;
-    margin: 0 auto;
-    font-weight: bold;
-    font-size: 16px;
-
-    &:hover {
-      border: solid 1px darken(#bdc3c7, 10);
-    }
+  p {
+    text-align: center;
+    color: #34495e;
+    line-height: 1.4;
   }
 
 }

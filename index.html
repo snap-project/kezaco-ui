@@ -9,13 +9,15 @@
     <div id="overlay" class="overlay"></div>
 
     <header class="header" role="banner">
-      <button type="button" class="btn-toggle-menu" id="btn-toggle-menu"></button>
-      <a href="">Kezaco UI</a>
+      <button type="button" class="btn-toggle-menu" id="btn-toggle-menu">
+        <span></span>
+      </button>
+
       <nav class="menu">
         <span>navigation</span>
-        <a href="" class="active">Home</a>
-        <a href="">Connexion</a>
-        <a href="">Register</a>
+        <a href="./index.html" class="active">Home</a>
+        <a href="./connexion.html">Connexion</a>
+        <a href="./register.html">Register</a>
       </nav>
     </header>
 
@@ -25,9 +27,12 @@
           <div class="search-form-index v-center">
             <img src="./img/logo.svg" alt="">
             <form method="get" action="">
-              <input type="search" class="input-search input-search-index">
-              <button type="submit">Rechercher</button>
+              <div class="field">
+                <label for="search" class="field-label">Tapez votre recherche ici...</label>
+                <input type="search" class="field-input" name="search" id="search" required>
+              </div>
             </form>
+            <p>Moteur de recherche gratuit de ressources pédagogique</p>
           </div>
         </div>
       </div>
