@@ -144,6 +144,22 @@ $menu-active-link-color: #e74c3c;
   }
 }
 
+.sticky {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 60px;
+  z-index: 10;
+  border-top: 0;
+  background: #fff;
+  padding: 0 20px;
+
+  input {
+    max-width: 50%;
+  }
+
+}
+
 @media screen and (min-width: $screen) {
   .btn-toggle-menu {
     display: none;

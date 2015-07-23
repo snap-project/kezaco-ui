@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+  var stickyNavTop = $('.search-engine').offset().top;
+  console.log("OFFSET NAV " + stickyNavTop);
   $('#btn-toggle-menu, #overlay').click(function(){
     $('body').toggleClass('with-sidebar');
   });
@@ -23,5 +24,22 @@ $(document).ready(function(){
       $(this).parent().addClass('has-label');
     }
   });
+
+  var stickyNav = function(){
+    var scrollTop = $(window).scrollTop();
+    console.log("OFFSET SCROLL " + scrollTop);
+    if (scrollTop > stickyNavTop) {
+        $('.search-engine').addClass('sticky');
+    } else {
+        $('.search-engine').removeClass('sticky');
+    }
+  };
+
+  stickyNav();
+
+  $(window).scroll(function() {
+      stickyNav();
+  });
+
 
 });
